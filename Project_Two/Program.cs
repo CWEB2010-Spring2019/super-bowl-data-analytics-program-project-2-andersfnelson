@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Project_Two
@@ -24,12 +25,26 @@ namespace Project_Two
             //Console.WriteLine(stepBackThree);
 
             string adjustedFilePath = $@"{stepBackThree}\Super_Bowl_Project.csv";
+            string destinationFilePath = $@"{stepBackThree}\Super_Bowl_Stats.txt";
             //Console.WriteLine(adjustedFilePath);
+
+            
 
             if (File.Exists(adjustedFilePath))
             {
-                FileStream file = new FileStream(adjustedFilePath, FileMode.Open, FileAccess.Read);
-                StreamReader read = new StreamReader(file);
+                if (File.Exists(destinationFilePath))
+                {
+
+                }
+                else
+                {
+                    File.Create(destinationFilePath);
+                }
+                FileStream InputFile = new FileStream(adjustedFilePath, FileMode.Open, FileAccess.Read);
+                StreamReader read = new StreamReader(InputFile);
+
+                FileStream OutputFile = new FileStream(destinationFilePath, FileMode.Open, FileAccess.Write);
+                StreamWriter write = new StreamWriter(OutputFile);
 
                 while (!read.EndOfStream)
                 {
@@ -43,9 +58,14 @@ namespace Project_Two
                     {
                         Console.WriteLine(e.Message);
                     }
-                }
+                    listOfSuperBowls.ForEach(i => write.WriteLine(i.ToString()));
+                }//End while
+
+                //Closing files and streams
                 read.Close();
-                file.Close();
+                InputFile.Close();
+                write.Close();
+                OutputFile.Close();
             }
             else
             {
