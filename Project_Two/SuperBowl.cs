@@ -55,6 +55,12 @@ namespace Project_Two
             return String.Format("Date: {0} \nSuper Bowl Number: {1} \nAttendance: {2} \nWinning Quarterback: {3} \nWinning Coach: {4}\nWinning Team: {5}\n", Date, SuperBowlRomanNumeral, Attendance, WinningQuarterback, WinningCoach, WinningTeamName);
         }
 
+        public string SuperBowlWinners()
+        {
+            return String.Format("Team name: {0} Year: {1} Winning Quarterback: {2} Winning Coach: {3} MVP: {4} Point Difference: {5}", WinningTeamName,
+                Date, WinningQuarterback, WinningCoach, MVP, (WinningTeamPoints - LosingTeamPoints));
+        }
+
 
     }
 }
