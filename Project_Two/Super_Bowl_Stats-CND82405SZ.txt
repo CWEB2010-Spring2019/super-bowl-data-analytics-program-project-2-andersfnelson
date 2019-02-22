@@ -51,6 +51,7 @@ Team name: Seattle Seahawks      Year: 2-Feb-14  Winning Quarterback: Russell Wi
 Team name: New England Patriots  Year: 1-Feb-15  Winning Quarterback: Tom Brady           Winning Coach: Bill Belichick                 MVP: Tom Brady                           Point Difference: 4              
 Team name: Denver Broncos        Year: 7-Feb-16  Winning Quarterback: Peyton Manning      Winning Coach: Gary Kubiak                 MVP: Von Miller                           Point Difference: 14              
 Team name: New England Patriots  Year: 5-Feb-17  Winning Quarterback: Tom Brady           Winning Coach: Bill Belichick                 MVP: Tom Brady                           Point Difference: 6              
+query2
 
 
 Top five attended Superbowls in order of attendance
@@ -60,21 +61,74 @@ Date: 30-Jan-83                  Winning Team: Washington Redskins         Losin
 Date: 9-Jan-77                   Winning Team: Oakland Raiders             Losing Team: Minnesota Vikings   City: Pasadena                  State: California               Stadium: Rose Bowl              
 Date: 6-Feb-11                   Winning Team: Green Bay Packers           Losing Team: Pittsburgh Steelers City: Arlington                 State: Texas                    Stadium: Cowboys Stadium        
 Date: 25-Jan-87                  Winning Team: New York Giants             Losing Team: Denver Broncos      City: Pasadena                  State: California               Stadium: Rose Bowl              
+query 3
+Date: 14-Jan-68 
+Super Bowl Number: II 
+Attendance: 75546 
+Winning Quarterback: Bart Starr 
+Winning Coach: Vince Lombardi
+Winning Team: Green Bay Packers
 
+Date: 15-Jan-67 
+Super Bowl Number: I 
+Attendance: 61946 
+Winning Quarterback: Bart Starr 
+Winning Coach: Vince Lombardi
+Winning Team: Green Bay Packers
 
-The state that has hosted the most superbowls is Florida. They have hosted 15 superbowls.
-City: Miami                      State: Florida                  Stadium: Orange Bowl            
-City: Miami                      State: Florida                  Stadium: Orange Bowl            
-City: Miami                      State: Florida                  Stadium: Orange Bowl            
-City: Miami                      State: Florida                  Stadium: Orange Bowl            
-City: Miami                      State: Florida                  Stadium: Orange Bowl            
-City: Tampa                      State: Florida                  Stadium: Tampa Stadium          
-City: Miami Gardens              State: Florida                  Stadium: Joe Robbie Stadium     
-City: Tampa                      State: Florida                  Stadium: Tampa Stadium          
-City: Miami Gardens              State: Florida                  Stadium: Joe Robbie Stadium     
-City: Miami Gardens              State: Florida                  Stadium: Pro Player Stadium     
-City: Tampa                      State: Florida                  Stadium: Raymond James Stadium   
-City: Jacksonville               State: Florida                  Stadium: Alltel Stadium         
-City: Miami Gardens              State: Florida                  Stadium: Dolphin Stadium        
-City: Tampa                      State: Florida                  Stadium: Raymond James Stadium   
-City: Miami Gardens              State: Florida                  Stadium: Sun Life Stadium       
+Date: 11-Jan-70 
+Super Bowl Number: IV 
+Attendance: 80562 
+Winning Quarterback: Len Dawson Mike Livingston 
+Winning Coach: Hank Stram
+Winning Team: Kansas City Chiefs
+
+Date: 13-Jan-74 
+Super Bowl Number: VIII 
+Attendance: 71882 
+Winning Quarterback: Bob Griese 
+Winning Coach: Don Shula
+Winning Team: Miami Dolphins
+
+Date: 28-Jan-96 
+Super Bowl Number: XXX 
+Attendance: 76347 
+Winning Quarterback: Troy Aikman 
+Winning Coach: Barry Switzer
+Winning Team: Dallas Cowboys
+
+Date: 24-Jan-82 
+Super Bowl Number: XVI 
+Attendance: 81270 
+Winning Quarterback: Joe Montana 
+Winning Coach: Bill Walsh
+Winning Team: San Francisco 49ers
+
+Date: 30-Jan-94 
+Super Bowl Number: XXVIII 
+Attendance: 72817 
+Winning Quarterback: Troy Aikman 
+Winning Coach: Jimmy Johnson
+Winning Team: Dallas Cowboys
+
+Date: 26-Jan-92 
+Super Bowl Number: XXVI 
+Attendance: 63130 
+Winning Quarterback: Mark Rypien 
+Winning Coach: Joe Gibbs
+Winning Team: Washington Redskins
+
+Date: 5-Feb-12 
+Super Bowl Number: XLVI 
+Attendance: 68658 
+Winning Quarterback: Eli Manning 
+Winning Coach: Tom Coughlin
+Winning Team: New York Giants
+
+Date: 2-Feb-14 
+Super Bowl Number: XLVIII 
+Attendance: 82529 
+Winning Quarterback: Russell Wilson 
+Winning Coach: Pete Carroll
+Winning Team: Seattle Seahawks
+

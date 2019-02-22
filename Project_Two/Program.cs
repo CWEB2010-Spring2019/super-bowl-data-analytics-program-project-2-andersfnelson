@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace Project_Two
 {
+
     class Program
     {
         static void Main(string[] args)
@@ -36,12 +37,14 @@ namespace Project_Two
 
 
                 Writer1(ref write, ref listOfSuperBowls);
-                write.WriteLine("query2");
+                
                 write.WriteLine("\n");
                 Writer2(ref write, ref listOfSuperBowls);
                 
-                write.WriteLine("query 3");
-                //Writer3(ref write, ref listOfSuperBowls);
+                write.WriteLine("\n");
+                Writer3(ref write, ref listOfSuperBowls);
+                Writer4(ref write, ref listOfSuperBowls);
+                Writer10(ref write, ref listOfSuperBowls);
                 write.Close();
                 OutputFile.Close();
             }
@@ -57,15 +60,7 @@ namespace Project_Two
                                 
         }
 
-        /*public static IEnumerable<SuperBowl> getHighScores(List<SuperBowl> listOfSuperBowls)
-        {
-            var getHighScores=
-                from score in listOfSuperBowls
-                where score > 40
-                orderby score.Winn
-
-            return getHighScores;
-        }*/
+   
 
 
         static void ObjectCreator(string adjustedFilePath, ref List<SuperBowl> listOfSuperBowls)
@@ -82,7 +77,7 @@ namespace Project_Two
                     listOfSuperBowls.Add(new SuperBowl(arrayOfValues[0], arrayOfValues[1], Int32.Parse(arrayOfValues[2]), arrayOfValues[3], arrayOfValues[4],
                         arrayOfValues[5], Int32.Parse(arrayOfValues[6]), arrayOfValues[7], arrayOfValues[8], arrayOfValues[9], Int32.Parse(arrayOfValues[10]), arrayOfValues[11], arrayOfValues[12], arrayOfValues[13], arrayOfValues[14]));
 
-                    Console.WriteLine(arrayOfValues[13]);
+                    
                 }
                 catch (Exception e)
                 {
@@ -132,17 +127,94 @@ namespace Project_Two
             }
         }
 
+        //Need help here
         static void Writer3(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
         {
             var groupQuery = from superBowl in listOfSuperBowls
-                             group superBowl by superBowl.City into cityGroup
-                             where cityGroup.Count() > 2
-                             orderby cityGroup.Key
-                             select cityGroup;
-
-            foreach (SuperBowl superBowl in groupQuery) {
-                write.WriteLine(superBowl.City);
+                             group superBowl by superBowl.State into stateGroup
+                             orderby stateGroup.Count() descending
+                             select new { aGroup = stateGroup.Key, Count = stateGroup.Count() };
+            var Taker = groupQuery.Take(1);
+            foreach (var superBowl in Taker)
+            {
+                write.Write($"The state that has hosted the most superbowls is {superBowl.aGroup}. They have hosted {superBowl.Count} superbowls.\n");
+                
             }
+
+            //This is crude, how to do using LINQ
+            foreach(var SuperBowl in listOfSuperBowls)
+            {
+                if(SuperBowl.State == "Florida")
+                {
+                    write.Write(SuperBowl.HighestState()+"\n");
+                }
+            }
+        }
+
+        static void Writer4(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
+        {
+
+
+             var MVPQuery = from superBowl in listOfSuperBowls
+                           group superBowl by superBowl.MVP into MVPGroup
+                           
+                           where MVPGroup.Count() > 1
+
+                           select new { bGroup = MVPGroup.Key, Count = MVPGroup.Count() };
+
+            
+                          
+         
+
+            //foreach(var MVPGroup in MVPQuery)
+            //{
+            //    Console.WriteLine(MVPGroup.bGroup.);
+            //    foreach(var superBowl in MVPGroup)
+            //    {
+            //        Console.WriteLine(superBowl.MVP);
+            //    }
+            //}  
+
+            //foreach (var MVPGroup in MVPQuery)
+            //{
+            //    Console.WriteLine("Group" + MVPGroup.bGroup );
+            //    foreach (var superBowl in MVPGroup)
+            //    {
+            //        Console.WriteLine(superBowl.MVP);
+            //    }
+            //}
+
+            foreach (var superBowl in MVPQuery)
+            {
+                
+                
+                Console.WriteLine($"The name of the group is {superBowl.bGroup} and the count is {superBowl.Count}");
+                foreach(var i in listOfSuperBowls)
+                {
+                    if(i.MVP == superBowl.bGroup)
+                    {
+                        Console.WriteLine(i.ToString());
+                    }
+                }
+                
+            }
+
+
+            
+        }
+
+        static void Writer10(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
+        {
+            var PointDifferenceQuery = from superBowl in listOfSuperBowls
+                                       orderby superBowl.PointDifference
+                                       select superBowl;
+            var Taker = PointDifferenceQuery.Take(1);
+
+            foreach(var superBowl in Taker)
+            {
+                Console.WriteLine($"The super bowl with the biggest point difference was Super Bowl {superBowl.SuperBowlRomanNumeral}. It had a point difference of {superBowl.PointDifference}.");
+            }
+
         }
     }
 }
