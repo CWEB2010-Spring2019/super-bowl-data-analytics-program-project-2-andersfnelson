@@ -44,6 +44,8 @@ namespace Project_Two
                 write.WriteLine("\n");
                 Writer3(ref write, ref listOfSuperBowls);
                 Writer4(ref write, ref listOfSuperBowls);
+                Writer5(ref write, ref listOfSuperBowls);
+                Writer9(ref write, ref listOfSuperBowls);
                 Writer10(ref write, ref listOfSuperBowls);
                 write.Close();
                 OutputFile.Close();
@@ -76,7 +78,7 @@ namespace Project_Two
                     arrayOfValues = read.ReadLine().Split(',');
                     listOfSuperBowls.Add(new SuperBowl(arrayOfValues[0], arrayOfValues[1], Int32.Parse(arrayOfValues[2]), arrayOfValues[3], arrayOfValues[4],
                         arrayOfValues[5], Int32.Parse(arrayOfValues[6]), arrayOfValues[7], arrayOfValues[8], arrayOfValues[9], Int32.Parse(arrayOfValues[10]), arrayOfValues[11], arrayOfValues[12], arrayOfValues[13], arrayOfValues[14]));
-
+                    
                     
                 }
                 catch (Exception e)
@@ -157,23 +159,18 @@ namespace Project_Two
 
              var MVPQuery = from superBowl in listOfSuperBowls
                            group superBowl by superBowl.MVP into MVPGroup
-                           
+                           orderby MVPGroup.Count() descending
                            where MVPGroup.Count() > 1
+                           select MVPGroup;
 
-                           select new { bGroup = MVPGroup.Key, Count = MVPGroup.Count() };
-
-            
-                          
-         
-
-            //foreach(var MVPGroup in MVPQuery)
-            //{
-            //    Console.WriteLine(MVPGroup.bGroup.);
-            //    foreach(var superBowl in MVPGroup)
-            //    {
-            //        Console.WriteLine(superBowl.MVP);
-            //    }
-            //}  
+            foreach (var mvp in MVPQuery)
+            {
+                Console.WriteLine(mvp.Key);
+                foreach (var player in mvp)
+                {
+                    Console.WriteLine("\t" + player.ToString());
+                }
+            }
 
             //foreach (var MVPGroup in MVPQuery)
             //{
@@ -184,36 +181,51 @@ namespace Project_Two
             //    }
             //}
 
-            foreach (var superBowl in MVPQuery)
-            {
+            //foreach (var superBowl in MVPQuery)
+            //{
                 
                 
-                Console.WriteLine($"The name of the group is {superBowl.bGroup} and the count is {superBowl.Count}");
-                foreach(var i in listOfSuperBowls)
-                {
-                    if(i.MVP == superBowl.bGroup)
-                    {
-                        Console.WriteLine(i.ToString());
-                    }
-                }
+            //    Console.WriteLine($"The name of the group is {superBowl.bGroup} and the count is {superBowl.Count}");
+            //    foreach(var i in listOfSuperBowls)
+            //    {
+            //        if(i.MVP == superBowl.bGroup)
+            //        {
+            //            Console.WriteLine(i.ToString());
+            //        }
+            //    }
                 
-            }
+            //}
 
 
             
         }
 
+        static void Writer5(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
+        {
+            var coachQuery = from superBowl in listOfSuperBowls
+                           group superBowl by superBowl.WinningCoach into CoachGroup
+                           orderby CoachGroup.Count() descending
+                           select CoachGroup;
+
+
+            Console.WriteLine("The winningist coach is " + coachQuery.First().Key + " They have won "+ coachQuery.First().Count());
+        }
+
+        static void Writer9(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
+        {
+            double averageValue = listOfSuperBowls.Average(x => x.Attendance);
+
+            Console.WriteLine("Average attendance of all superbowls was " + averageValue.ToString("n0"));   
+                
+                
+        }
+
         static void Writer10(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
         {
             var PointDifferenceQuery = from superBowl in listOfSuperBowls
-                                       orderby superBowl.PointDifference
+                                       orderby superBowl.PointDifference descending
                                        select superBowl;
-            var Taker = PointDifferenceQuery.Take(1);
-
-            foreach(var superBowl in Taker)
-            {
-                Console.WriteLine($"The super bowl with the biggest point difference was Super Bowl {superBowl.SuperBowlRomanNumeral}. It had a point difference of {superBowl.PointDifference}.");
-            }
+            Console.WriteLine($"The super bowl with the biggest point difference was Super Bowl {PointDifferenceQuery.First().SuperBowlRomanNumeral}. It had a point difference of {PointDifferenceQuery.First().PointDifference}.");
 
         }
     }

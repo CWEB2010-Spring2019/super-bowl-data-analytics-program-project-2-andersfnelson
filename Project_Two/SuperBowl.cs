@@ -7,7 +7,7 @@ namespace Project_Two
     class SuperBowl
     {
 
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public int Attendance { get; set; }
         public string SuperBowlRomanNumeral { get; set; }
         public int SuperBowlNumber { get; set; }
@@ -37,7 +37,7 @@ namespace Project_Two
             int WinningTeamPoints, string LosingQuarterback, string LosingCoach, string LosingTeamName
             , int LosingTeamPoints, string MVP, string Stadium, string City, string State)
         {
-            this.Date = Date;
+            this.Date = Convert.ToDateTime(Date);
             this.SuperBowlRomanNumeral = SuperBowlRomanNumeral;
             this.Attendance = Attendance;
             this.WinningQuarterback = WinningQuarterback;
@@ -52,22 +52,18 @@ namespace Project_Two
             this.State = State;
             this.City = City;
             this.LosingTeamName = LosingTeamName;
-
+            this.PointDifference = WinningTeamPoints - LosingTeamPoints;
             
 
         }
 
         
         //Is this right?
-        private int getPointDifference()
-        {
-            PointDifference = WinningTeamPoints - LosingTeamPoints;
-            return PointDifference;
-        }
+        
         
         public override string ToString()
         {
-            return String.Format("Date: {0} \nSuper Bowl Number: {1} \nAttendance: {2} \nWinning Quarterback: {3} \nWinning Coach: {4}\nWinning Team: {5}\n", Date, SuperBowlRomanNumeral, Attendance, WinningQuarterback, WinningCoach, WinningTeamName);
+            return String.Format("Date: {0} \nSuper Bowl Number: {1} \nAttendance: {2} \nWinning Quarterback: {3} \nWinning Coach: {4}\nWinning Team: {5}\n", Date.Year, SuperBowlRomanNumeral, Attendance, WinningQuarterback, WinningCoach, WinningTeamName);
         }
         
 
