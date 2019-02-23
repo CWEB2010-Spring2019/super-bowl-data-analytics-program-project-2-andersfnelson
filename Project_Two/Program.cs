@@ -35,7 +35,8 @@ namespace Project_Two
                 FileStream OutputFile = new FileStream(destinationFilePath, FileMode.OpenOrCreate, FileAccess.Write);
                 StreamWriter write = new StreamWriter(OutputFile);
 
-
+                Console.WriteLine("Welcome, this program will output some data about superbowls " +
+                    "to a text file in the project folder.  There is nothing else you need to do.");
                 Writer1(ref write, ref listOfSuperBowls);
                 
                 write.WriteLine("\n");
@@ -44,9 +45,8 @@ namespace Project_Two
                 write.WriteLine("\n");
                 Writer3(ref write, ref listOfSuperBowls);
                 Writer4(ref write, ref listOfSuperBowls);
-                Writer5(ref write, ref listOfSuperBowls);
-                Writer9(ref write, ref listOfSuperBowls);
-                Writer10(ref write, ref listOfSuperBowls);
+                RandomFacts(ref write, ref listOfSuperBowls);
+                
                 write.Close();
                 OutputFile.Close();
             }
@@ -71,6 +71,7 @@ namespace Project_Two
             string[] arrayOfValues;
             FileStream InputFile = new FileStream(adjustedFilePath, FileMode.Open, FileAccess.Read);
             StreamReader read = new StreamReader(InputFile);
+            read.ReadLine();
             while (!read.EndOfStream)
             {
                 try
@@ -156,7 +157,7 @@ namespace Project_Two
         static void Writer4(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
         {
 
-
+            write.WriteLine("\nPlayers that have been named MVP more than once: \n");
              var MVPQuery = from superBowl in listOfSuperBowls
                            group superBowl by superBowl.MVP into MVPGroup
                            orderby MVPGroup.Count() descending
@@ -165,11 +166,12 @@ namespace Project_Two
 
             foreach (var mvp in MVPQuery)
             {
-                Console.WriteLine(mvp.Key);
+                write.WriteLine(mvp.Key);
                 foreach (var player in mvp)
                 {
-                    Console.WriteLine("\t" + player.ToString());
+                    write.WriteLine(player.MVPWriter());
                 }
+                write.WriteLine("\n");
             }
 
             //foreach (var MVPGroup in MVPQuery)
@@ -200,33 +202,46 @@ namespace Project_Two
             
         }
 
-        static void Writer5(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
+        static void RandomFacts(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
         {
+            write.WriteLine("Here are some superbowl fun facts\n\n");
             var coachQuery = from superBowl in listOfSuperBowls
                            group superBowl by superBowl.WinningCoach into CoachGroup
                            orderby CoachGroup.Count() descending
                            select CoachGroup;
 
 
-            Console.WriteLine("The winningist coach is " + coachQuery.First().Key + " They have won "+ coachQuery.First().Count());
-        }
+            write.WriteLine("The winningist coach is " + coachQuery.First().Key + ". He has won "+ coachQuery.First().Count());
 
-        static void Writer9(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
-        {
+            var coachQuery2 = from superBowl in listOfSuperBowls
+                              group superBowl by superBowl.LosingCoach into CoachGroup2
+                              orderby CoachGroup2.Count() descending
+                              select CoachGroup2;
+
+            write.WriteLine("The coach that has lost the most superbowls is " + coachQuery2.First().Key+ ". He has lost " + coachQuery2.First().Count());
+
+            var WinningQuery = from superBowl in listOfSuperBowls
+                               group superBowl by superBowl.WinningTeamName into TeamGroup
+                               orderby TeamGroup.Count() descending
+                               select TeamGroup;
+            write.WriteLine("The team that has won the most superbowls is " + WinningQuery.First().Key + ". they have won " + WinningQuery.First().Count());
+
+            var LosingQuery = from superBowl in listOfSuperBowls
+                               group superBowl by superBowl.LosingTeamName into TeamGroup2
+                               orderby TeamGroup2.Count() descending
+                               select TeamGroup2;
+            write.WriteLine("The team that has won the most superbowls is " + LosingQuery.First().Key + ". they have lost " + LosingQuery.First().Count());
+
             double averageValue = listOfSuperBowls.Average(x => x.Attendance);
 
-            Console.WriteLine("Average attendance of all superbowls was " + averageValue.ToString("n0"));   
-                
-                
-        }
+            write.WriteLine("Average attendance of all superbowls was " + averageValue.ToString("n0"));
 
-        static void Writer10(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
-        {
             var PointDifferenceQuery = from superBowl in listOfSuperBowls
                                        orderby superBowl.PointDifference descending
                                        select superBowl;
-            Console.WriteLine($"The super bowl with the biggest point difference was Super Bowl {PointDifferenceQuery.First().SuperBowlRomanNumeral}. It had a point difference of {PointDifferenceQuery.First().PointDifference}.");
-
+            write.WriteLine($"The super bowl with the biggest point difference was Super Bowl {PointDifferenceQuery.First().SuperBowlRomanNumeral}. It had a point difference of {PointDifferenceQuery.First().PointDifference}.");
         }
+
+        
     }
 }

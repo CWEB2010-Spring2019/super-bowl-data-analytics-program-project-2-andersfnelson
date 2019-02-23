@@ -70,8 +70,8 @@ namespace Project_Two
         //To string method for first LINQ query
         public string SuperBowlWinners()
         {
-            return String.Format("Team name: {0,-20}".PadRight(20) +"Year: {1, -10}".PadRight(10)+ "Winning Quarterback: {2,-20}".PadRight(20) +"Winning Coach: {3}".PadRight(35)+ "MVP: {4}".PadRight(35) +"Point Difference: {5}".PadRight(35), WinningTeamName,
-                Date, WinningQuarterback, WinningCoach, MVP, (WinningTeamPoints - LosingTeamPoints));
+            return String.Format("Team name: {0,-20}".PadRight(20) +"Year: {1, -10}".PadRight(10)+ "Winning Quarterback: {2,-30}".PadRight(30) +"Winning Coach: {3, -20}".PadRight(20)+ "MVP: {4, -25}".PadRight(25) +"Point Difference: {5, -10}".PadRight(10), WinningTeamName,
+                Date.Year, WinningQuarterback, WinningCoach, MVP, (WinningTeamPoints - LosingTeamPoints));
         }
 
         //To string method for second query
@@ -84,6 +84,11 @@ namespace Project_Two
         public string HighestState()
         {
             return String.Format("City: {0,-20}".PadRight(20) + "State: {1, -20}".PadRight(20) + "Stadium: {2, -20}".PadRight(20), City, State, Stadium);
+        }
+
+        public string MVPWriter()
+        {
+            return String.Format("Winning team: {0,-20} ".PadRight(20) + "Losing team: {1,-20}".PadRight(20), WinningTeamName, LosingTeamName);
         }
 
 
