@@ -11,10 +11,6 @@ namespace Project_Two
     {
         static void Main(string[] args)
         {
-            /**Your application should allow the end user to pass end a file path for output 
-            * or guide them through generating the file.
-            **/
-            
 
             //Variable declarations and setting up file path
             List<SuperBowl> listOfSuperBowls = new List<SuperBowl>();
@@ -52,14 +48,10 @@ namespace Project_Two
             }
             else
             {
-                Console.WriteLine("Sorry, can't find file to read from.");
+                Console.WriteLine("Sorry, can't find file to read from.  Please make sure it is in the same folder as the" +
+                    "program.cs file");
             }
-
-
-            
-
-            
-                                
+     
         }
 
    
@@ -104,8 +96,7 @@ namespace Project_Two
                                    //Format query
                                  select SuperBowl;
             
-            write.WriteLine("All super bowl winners");
-            write.WriteLine();
+            write.WriteLine("All super bowl winners arranged by year:\n");
             foreach (SuperBowl superBowl in SuperBowlQuery)
             {
                 write.Write(superBowl.SuperBowlWinners()+"\n");
@@ -130,7 +121,7 @@ namespace Project_Two
             }
         }
 
-        //Need help here
+        
         static void Writer3(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
         {
             var groupQuery = from superBowl in listOfSuperBowls
@@ -173,33 +164,7 @@ namespace Project_Two
                 }
                 write.WriteLine("\n");
             }
-
-            //foreach (var MVPGroup in MVPQuery)
-            //{
-            //    Console.WriteLine("Group" + MVPGroup.bGroup );
-            //    foreach (var superBowl in MVPGroup)
-            //    {
-            //        Console.WriteLine(superBowl.MVP);
-            //    }
-            //}
-
-            //foreach (var superBowl in MVPQuery)
-            //{
-                
-                
-            //    Console.WriteLine($"The name of the group is {superBowl.bGroup} and the count is {superBowl.Count}");
-            //    foreach(var i in listOfSuperBowls)
-            //    {
-            //        if(i.MVP == superBowl.bGroup)
-            //        {
-            //            Console.WriteLine(i.ToString());
-            //        }
-            //    }
-                
-            //}
-
-
-            
+  
         }
 
         static void RandomFacts(ref StreamWriter write, ref List<SuperBowl> listOfSuperBowls)
