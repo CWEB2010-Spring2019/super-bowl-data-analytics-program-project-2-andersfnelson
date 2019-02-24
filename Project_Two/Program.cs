@@ -33,6 +33,7 @@ namespace Project_Two
 
                 Console.WriteLine("Welcome, this program will output some data about superbowls " +
                     "to a text file in the project folder.  There is nothing else you need to do.");
+                Console.WriteLine($"The destination file path is {destinationFilePath}.");
                 Writer1(ref write, ref listOfSuperBowls);
                 
                 write.WriteLine("\n");
@@ -70,7 +71,8 @@ namespace Project_Two
                 {
                     arrayOfValues = read.ReadLine().Split(',');
                     listOfSuperBowls.Add(new SuperBowl(arrayOfValues[0], arrayOfValues[1], Int32.Parse(arrayOfValues[2]), arrayOfValues[3], arrayOfValues[4],
-                        arrayOfValues[5], Int32.Parse(arrayOfValues[6]), arrayOfValues[7], arrayOfValues[8], arrayOfValues[9], Int32.Parse(arrayOfValues[10]), arrayOfValues[11], arrayOfValues[12], arrayOfValues[13], arrayOfValues[14]));
+                        arrayOfValues[5], Int32.Parse(arrayOfValues[6]), arrayOfValues[7], arrayOfValues[8], arrayOfValues[9], Int32.Parse(arrayOfValues[10]), arrayOfValues[11],
+                        arrayOfValues[12], arrayOfValues[13], arrayOfValues[14]));
                     
                     
                 }
@@ -113,7 +115,7 @@ namespace Project_Two
                          select superBowl;
 
             var Taker = Query2.Take(5);
-            write.WriteLine("Top five attended Superbowls in order of attendance");
+            write.WriteLine("Top five attended Superbowls in order of attendance:");
             write.WriteLine();
             foreach(var superBowl in Taker)
             {
@@ -171,19 +173,19 @@ namespace Project_Two
         {
             write.WriteLine("Here are some superbowl fun facts\n\n");
             var coachQuery = from superBowl in listOfSuperBowls
-                           group superBowl by superBowl.WinningCoach into CoachGroup
-                           orderby CoachGroup.Count() descending
-                           select CoachGroup;
+                             group superBowl by superBowl.WinningCoach into CoachGroup
+                             orderby CoachGroup.Count() descending
+                             select CoachGroup;
 
 
-            write.WriteLine("The winningist coach is " + coachQuery.First().Key + ". He has won "+ coachQuery.First().Count());
+            write.WriteLine("The winningist coach is " + coachQuery.First().Key + ". He has won " + coachQuery.First().Count());
 
             var coachQuery2 = from superBowl in listOfSuperBowls
                               group superBowl by superBowl.LosingCoach into CoachGroup2
                               orderby CoachGroup2.Count() descending
                               select CoachGroup2;
 
-            write.WriteLine("The coach that has lost the most superbowls is " + coachQuery2.First().Key+ ". He has lost " + coachQuery2.First().Count());
+            write.WriteLine("The coach that has lost the most superbowls is " + coachQuery2.First().Key + ". He has lost " + coachQuery2.First().Count());
 
             var WinningQuery = from superBowl in listOfSuperBowls
                                group superBowl by superBowl.WinningTeamName into TeamGroup
@@ -192,10 +194,11 @@ namespace Project_Two
             write.WriteLine("The team that has won the most superbowls is " + WinningQuery.First().Key + ". they have won " + WinningQuery.First().Count());
 
             var LosingQuery = from superBowl in listOfSuperBowls
-                               group superBowl by superBowl.LosingTeamName into TeamGroup2
-                               orderby TeamGroup2.Count() descending
-                               select TeamGroup2;
-            write.WriteLine("The team that has won the most superbowls is " + LosingQuery.First().Key + ". they have lost " + LosingQuery.First().Count());
+                              group superBowl by superBowl.LosingTeamName into TeamGroup2
+                              orderby TeamGroup2.Count() descending
+                              select TeamGroup2;
+            write.WriteLine("The team that has won the most superbowls is " + LosingQuery.First().Key + 
+                            ". they have lost " + LosingQuery.First().Count());
 
             double averageValue = listOfSuperBowls.Average(x => x.Attendance);
 
@@ -204,7 +207,8 @@ namespace Project_Two
             var PointDifferenceQuery = from superBowl in listOfSuperBowls
                                        orderby superBowl.PointDifference descending
                                        select superBowl;
-            write.WriteLine($"The super bowl with the biggest point difference was Super Bowl {PointDifferenceQuery.First().SuperBowlRomanNumeral}. It had a point difference of {PointDifferenceQuery.First().PointDifference}.");
+            write.WriteLine($"The super bowl with the biggest point difference was Super Bowl {PointDifferenceQuery.First().SuperBowlRomanNumeral}" +
+                $" in {PointDifferenceQuery.First().Date.Year}. It had a point difference of {PointDifferenceQuery.First().PointDifference}.");
         }
 
         

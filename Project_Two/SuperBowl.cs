@@ -6,7 +6,6 @@ namespace Project_Two
 {
     class SuperBowl
     {
-
         public DateTime Date { get; set; }
         public int Attendance { get; set; }
         public string SuperBowlRomanNumeral { get; set; }
@@ -31,7 +30,7 @@ namespace Project_Two
 
         }
 
-        //Overloaded constructor
+        //Overloaded constructor used for objects
         public SuperBowl(string Date, string SuperBowlRomanNumeral, int Attendance
             , string WinningQuarterback, string WinningCoach, string WinningTeamName, 
             int WinningTeamPoints, string LosingQuarterback, string LosingCoach, string LosingTeamName
@@ -57,20 +56,18 @@ namespace Project_Two
 
         }
 
-        
-        //Is this right?
-        
-        
         public override string ToString()
         {
-            return String.Format("Date: {0} \nSuper Bowl Number: {1} \nAttendance: {2} \nWinning Quarterback: {3} \nWinning Coach: {4}\nWinning Team: {5}\n", Date.Year, SuperBowlRomanNumeral, Attendance, WinningQuarterback, WinningCoach, WinningTeamName);
+            return String.Format("Date: {0} \nSuper Bowl Number: {1} \nAttendance: {2} \nWinning Quarterback: {3} \nWinning Coach: {4}\nWinning Team: {5}\n",
+                Date.Year, SuperBowlRomanNumeral, Attendance, WinningQuarterback, WinningCoach, WinningTeamName);
         }
         
 
         //To string method for first LINQ query
         public string SuperBowlWinners()
         {
-            return String.Format("Team name: {0,-20}".PadRight(20) +"Year: {1, -10}".PadRight(10)+ "Winning Quarterback: {2,-30}".PadRight(30) +"Winning Coach: {3, -20}".PadRight(20)+ "MVP: {4, -25}".PadRight(25) +"Point Difference: {5, -10}".PadRight(10), WinningTeamName,
+            return String.Format("Team name: {0,-20}".PadRight(20) +"Year: {1, -10}".PadRight(10)+ "Winning Quarterback: {2,-30}".PadRight(30) +
+                "Winning Coach: {3, -20}".PadRight(20)+ "MVP: {4, -25}".PadRight(25) +"Point Difference: {5, -10}".PadRight(10), WinningTeamName,
                 Date.Year, WinningQuarterback, WinningCoach, MVP, (WinningTeamPoints - LosingTeamPoints));
         }
 
@@ -78,8 +75,9 @@ namespace Project_Two
 
         public string TopFiveAttended()
         {
-            return String.Format("Date: {0,-20}".PadRight(20) + "Winning Team: {1, -25}".PadRight(25) + "Losing Team: {2, -20}".PadRight(20) + "City: {3, -20}".PadRight(20) + "State: {4, -20}".PadRight(20) + "Stadium: {5, -20}".PadRight(20), 
-                Date, WinningTeamName, LosingTeamName, City, State, Stadium);
+            return String.Format("Yeah: {0,-10}".PadRight(10) + "Winning Team: {1, -25}".PadRight(25) + "Losing Team: {2, -20}".PadRight(20)
+                + "City: {3, -15}".PadRight(15) + "State: {4, -20}".PadRight(20) + "Stadium: {5, -20}".PadRight(20), 
+                Date.Year, WinningTeamName, LosingTeamName, City, State, Stadium);
         }
         public string HighestState()
         {

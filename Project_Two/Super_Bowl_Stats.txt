@@ -1,4 +1,4 @@
-All super bowl winners
+All super bowl winners arranged by year:
 
 Team name: Green Bay Packers     Year: 1967      Winning Quarterback: Bart Starr                      Winning Coach: Vince Lombardi      MVP: Bart Starr                           Point Difference: 25        
 Team name: Green Bay Packers     Year: 1968      Winning Quarterback: Bart Starr                      Winning Coach: Vince Lombardi      MVP: Bart Starr                           Point Difference: 19        
@@ -53,13 +53,13 @@ Team name: Denver Broncos        Year: 2016      Winning Quarterback: Peyton Man
 Team name: New England Patriots  Year: 2017      Winning Quarterback: Tom Brady                       Winning Coach: Bill Belichick      MVP: Tom Brady                            Point Difference: 6         
 
 
-Top five attended Superbowls in order of attendance
+Top five attended Superbowls in order of attendance:
 
-Date: 1/20/1980 12:00:00 AM       Winning Team: Pittsburgh Steelers         Losing Team: Los Angeles Rams    City: Pasadena                  State: California               Stadium: Rose Bowl              
-Date: 1/30/1983 12:00:00 AM       Winning Team: Washington Redskins         Losing Team: Miami Dolphins      City: Pasadena                  State: California               Stadium: Rose Bowl              
-Date: 1/9/1977 12:00:00 AM       Winning Team: Oakland Raiders             Losing Team: Minnesota Vikings   City: Pasadena                  State: California               Stadium: Rose Bowl              
-Date: 2/6/2011 12:00:00 AM       Winning Team: Green Bay Packers           Losing Team: Pittsburgh Steelers City: Arlington                 State: Texas                    Stadium: Cowboys Stadium        
-Date: 1/25/1987 12:00:00 AM       Winning Team: New York Giants             Losing Team: Denver Broncos      City: Pasadena                  State: California               Stadium: Rose Bowl              
+Yeah: 1980      Winning Team: Pittsburgh Steelers         Losing Team: Los Angeles Rams    City: Pasadena        State: California               Stadium: Rose Bowl              
+Yeah: 1983      Winning Team: Washington Redskins         Losing Team: Miami Dolphins      City: Pasadena        State: California               Stadium: Rose Bowl              
+Yeah: 1977      Winning Team: Oakland Raiders             Losing Team: Minnesota Vikings   City: Pasadena        State: California               Stadium: Rose Bowl              
+Yeah: 2011      Winning Team: Green Bay Packers           Losing Team: Pittsburgh Steelers City: Arlington       State: Texas                    Stadium: Cowboys Stadium        
+Yeah: 1987      Winning Team: New York Giants             Losing Team: Denver Broncos      City: Pasadena        State: California               Stadium: Rose Bowl              
 
 
 The state that has hosted the most superbowls is Florida. They have hosted 15 superbowls.
@@ -86,19 +86,29 @@ Winning team: New England Patriots Losing team: St. Louis Rams
 Winning team: New England Patriots Losing team: Carolina Panthers   
 Winning team: New England Patriots Losing team: Seattle Seahawks    
 Winning team: New England Patriots Losing team: Atlanta Falcons     
+
+
 Joe Montana
 Winning team: San Francisco 49ers  Losing team: Cincinnati Bengals  
 Winning team: San Francisco 49ers  Losing team: Miami Dolphins      
 Winning team: San Francisco 49ers  Losing team: Denver Broncos      
+
+
 Bart Starr
 Winning team: Green Bay Packers    Losing team: Kansas City Chiefs  
 Winning team: Green Bay Packers    Losing team: Oakland Raiders     
+
+
 Terry Bradshaw
 Winning team: Pittsburgh Steelers  Losing team: Dallas Cowboys      
 Winning team: Pittsburgh Steelers  Losing team: Los Angeles Rams    
+
+
 Eli Manning
 Winning team: New York Giants      Losing team: New England Patriots
 Winning team: New York Giants      Losing team: New England Patriots
+
+
 Here are some superbowl fun facts
 
 
@@ -107,4 +117,4 @@ The coach that has lost the most superbowls is Don Shula. He has lost 4
 The team that has won the most superbowls is Pittsburgh Steelers. they have won 6
 The team that has won the most superbowls is Denver Broncos. they have lost 5
 Average attendance of all superbowls was 77,649
-The super bowl with the biggest point difference was Super Bowl XXIV. It had a point difference of 45.
+The super bowl with the biggest point difference was Super Bowl XXIV in 1990. It had a point difference of 45.
